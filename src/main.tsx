@@ -11,12 +11,12 @@ async function prepare() {
   return worker.start();
 }
 
-prepare().then(() => {
-  ReactDOM.createRoot(document.getElementById('root')!).render(
-    <React.StrictMode>
-      <ChakraProvider>
-        <App />
-      </ChakraProvider>
-    </React.StrictMode>
-  );
-});
+// prepare().then(() => {
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <ChakraProvider>
+      <App />
+    </ChakraProvider>
+  </React.StrictMode>
+);
+// });

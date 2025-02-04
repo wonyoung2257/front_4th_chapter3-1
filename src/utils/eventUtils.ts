@@ -21,12 +21,16 @@ function searchEvents(events: Event[], term: string) {
 
 function filterEventsByDateRangeAtWeek(events: Event[], currentDate: Date) {
   const weekDates = getWeekDates(currentDate);
+  weekDates[0].setHours(0, 0, 0, 0);
+  weekDates[6].setHours(23, 59, 59, 999);
   return filterEventsByDateRange(events, weekDates[0], weekDates[6]);
 }
 
 function filterEventsByDateRangeAtMonth(events: Event[], currentDate: Date) {
   const monthStart = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+  monthStart.setHours(0, 0, 0, 0);
   const monthEnd = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+  monthEnd.setHours(23, 59, 59, 999);
   return filterEventsByDateRange(events, monthStart, monthEnd);
 }
 
